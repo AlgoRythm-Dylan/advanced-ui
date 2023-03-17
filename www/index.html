@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<head>
+    <title>Advanced-Dialog test</title>
+</head>
+<body>
+
+    <button id="show-a-dialog">Show a Dialog</button>
+
+    <template id="test-dialog">
+        <p slot="title">This is a dialog</p>
+        <p>Test advanced dialog</p>
+        <button slot="controls-panel" dialog-closer>Close</button>
+    </template>
+
+</body>
+<script type="module">
+import { showDialog } from "./advanced-dialog.js";
+
+async function main(){
+    document.getElementById("show-a-dialog").addEventListener("click", e => {
+        showDialog("#test-dialog");
+    });
+}
+
+addEventListener("load", main);
+
+</script>
