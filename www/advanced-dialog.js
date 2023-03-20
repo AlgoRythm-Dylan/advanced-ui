@@ -17,6 +17,9 @@ const TEMPLATE = `<style>
     padding: var(--adv-dialog-header-padding, 0.3rem);
     height: var(--adv-dialog-header-height, 2.5rem);
 }
+#title-spacer {
+    width: var(--adv-dialog-title-spacing, 0.3rem);
+}
 #close-button {
     padding: var(--adv-dialog-close-button-padding, 0.4rem);
     margin: var(--adv-dialog-close-button-margin, 0px);
@@ -45,6 +48,7 @@ const TEMPLATE = `<style>
 </style>
 <div id="header" part="header">
     <slot name="title"></slot>
+    <div id="title-spacer" part="title-spacer"></div>
     <button id="close-button" part="close-button"></button>
 </div>
 <div id="container">

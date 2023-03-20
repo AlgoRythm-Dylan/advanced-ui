@@ -8,4 +8,4 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
 app.use(express.static(join(__dirname, "www")));
 
-app.listen(8080);
+app.listen(8092);
