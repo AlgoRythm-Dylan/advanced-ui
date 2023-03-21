@@ -1,3 +1,18 @@
 advanced-dialog > button[slot="controls-panel"]:not([unstyled]) {
 
 }
+
+advanced-dialog[size=medium] {
+    width: var(--adv-dialog-med-width, 65%);
+    max-width: 100%;
+    height: var(--adv-dialog-med-height, 65%);
+    max-height: 100%;
+}
+
+@media (max-width: 600px){
+    advanced-dialog[size=medium] {
+        height: 100%;
+        width: 100%;
+        border-radius: 0px;
+    }
+}
