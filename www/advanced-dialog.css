@@ -1,5 +1,22 @@
 advanced-dialog > button[slot="controls-panel"]:not([unstyled]) {
+    margin: 0.3rem;
+    padding: 0.3rem;
+    min-width: 5rem;
+    border: solid black 1px;
+    border-radius: 0.3pc;
+    background: white;
+}
+advanced-dialog > button[slot="controls-panel"]:not([unstyled]).action {
+    border-color: #87b9ff;
+    cursor: pointer;
+}
+advanced-dialog > button[slot="controls-panel"]:not([unstyled]).action:hover {
+    background: #f5f9ff;
+}
 
+advanced-dialog *[slot="title"] {
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 
 advanced-dialog[size=medium] {
@@ -7,6 +24,19 @@ advanced-dialog[size=medium] {
     max-width: 100%;
     height: var(--adv-dialog-med-height, 65%);
     max-height: 100%;
+}
+.adv-dialog-backdrop {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+    background: rgba(20, 20, 30, 0.4);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 @media (max-width: 600px){

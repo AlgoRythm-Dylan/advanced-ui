@@ -13,37 +13,41 @@ const TEMPLATE = `<style>
 #header {
     display: flex;
     align-items: center;
-    background: var(--adv-dialog-header-bg, #e3e3e3);
+    background: var(--adv-dialog-header-bg, #e8e8e8);
     padding: var(--adv-dialog-header-padding, 0.3rem);
-    height: var(--adv-dialog-header-height, 2.5rem);
+    height: var(--adv-dialog-header-height, auto);
+    border-bottom: solid #bababa 1px;
 }
 #title-spacer {
     width: var(--adv-dialog-title-spacing, 0.3rem);
 }
 #close-button {
-    padding: var(--adv-dialog-close-button-padding, 0.4rem);
+    padding: var(--adv-dialog-close-button-padding, 0.3rem 0.5rem);
     margin: var(--adv-dialog-close-button-margin, 0px);
-    min-width: var(--adv-dialog-close-button-min-width, 60px);
     margin-left: auto;
     border: var(--adv-dialog-close-button-border, solid #D1D1D1 1px);
     border-radius: var(--adv-dialog-close-button-border-radius, 0.3pc);
-    background: var(--adv-dialog-close-button-bg, rgb(240, 240, 240));
+    background: var(--adv-dialog-close-button-bg, white);
 }
 #close-button::after {
     content: var(--adv-dialog-close-button-content, "Close");
 }
+#close-button:hover {
+    color: #87b9ff;
+}
 #container {
     background: var(--adv-dialog-bg, white);
-    padding: var(--adv-dialog-padding, 0px);
+    padding: var(--adv-dialog-padding, 0.3rem);
     flex: 1;
     overflow: auto;
     min-height: min-content;
 }
 #controls-panel {
-    background: var(--adv-dialog-controls-panel-bg, #f5f5f5);
+    background: var(--adv-dialog-controls-panel-bg, #e8e8e8);
     display: flex;
     align-items: center;
     justify-content: var(--adv-dialog-controls-panel-alignment, end);
+    border-top: solid #bababa 1px;
 }
 </style>
 <div id="header" part="header">
@@ -189,10 +193,7 @@ export function message(text, title=null) {
 
 function createBackdrop(){
     backdrop = document.createElement("div");
-    backdrop.style.cssText = "position: fixed; top: 0px; " +
-        "left: 0px; width: 100%; height: 100%; z-index: 99; " +
-        "background: rgba(20, 20, 30, 0.4); backdrop-filter: blur(4px); "+
-        "display: flex; align-items: center; justify-content: center;";
+    backdrop.className = "adv-dialog-backdrop";
     return backdrop;
 }
 
