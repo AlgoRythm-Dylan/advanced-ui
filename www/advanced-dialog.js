@@ -107,7 +107,21 @@ export class AdvancedDialog extends HTMLElement {
             else if (e.target.getAttribute("dialog-no") !== null) {
                 this.close(DialogResult.No);
             }
-        })
+        });
+        let controlsPanelSlot = this.shadow.querySelector("slot[name='controls-panel']")
+        
+        controlsPanelSlot.addEventListener("slotchange", e => {
+            if(controlsPanelSlot.assignedElements().length === 0)
+                this.#hideControlsPanel();
+            else
+                this.#showControlsPanel();
+        });
+    }
+    #hideControlsPanel(){
+        this.shadow.getElementById("controls-panel").style.display = "none";
+    }
+    #showControlsPanel(){
+        this.shadow.getElementById("controls-panel").style.display = "flex";
     }
     show(){
         showBackdrop();

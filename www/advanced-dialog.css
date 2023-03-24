@@ -2,7 +2,7 @@ advanced-dialog button[slot="controls-panel"]:not([unstyled]) {
     margin: 0.3rem;
     padding: 0.3rem;
     min-width: 5rem;
-    border: solid black 1px;
+    border: solid #D1D1D1 1px;
     border-radius: 0.3pc;
     background: white;
 }
