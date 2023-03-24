@@ -161,6 +161,7 @@ export function showDialog(query) {
 export function yesno(prompt, title = null) {
     let dialog = document.createElement("advanced-dialog");
     dialog.innerHTML = prompt;
+    dialog.setAttribute("size", "alert");
     let titleEl = document.createElement("p");
     titleEl.setAttribute("slot", "title");
     titleEl.innerHTML = title ?? "Message from Webpage";
@@ -173,6 +174,7 @@ export function yesno(prompt, title = null) {
     let yesButton = document.createElement("button");
     yesButton.setAttribute("slot", "controls-panel");
     yesButton.setAttribute("dialog-yes", true);
+    yesButton.className = "action";
     yesButton.innerHTML = "Yes";
     dialog.appendChild(yesButton);
     dialog.style.minWidth = "200px";
@@ -187,6 +189,7 @@ export function yesno(prompt, title = null) {
 export function message(text, title=null) {
     let dialog = document.createElement("advanced-dialog");
     dialog.innerHTML = text;
+    dialog.setAttribute("size", "alert");
     let titleEl = document.createElement("p");
     titleEl.setAttribute("slot", "title");
     titleEl.innerHTML = title ?? "Message from Webpage";

@@ -13,6 +13,9 @@ advanced-dialog > button[slot="controls-panel"]:not([unstyled]).action {
 advanced-dialog > button[slot="controls-panel"]:not([unstyled]).action:hover {
     background: #f5f9ff;
 }
+advanced-dialog button[slot="controls-panel"]:not([unstyled]):not(:last-of-type){
+    margin-right: 0px;
+}
 
 advanced-dialog {
     max-width: 100%;
@@ -25,12 +28,13 @@ advanced-dialog *[slot="title"] {
 
 
 advanced-dialog[size=x-small], advanced-dialog[size=alert] {
-    width: var(--adv-dialog-med-width, 25%);
-    height: var(--adv-dialog-med-height, 25%);
+    width: var(--adv-dialog-xs-width, unset);
+    height: var(--adv-dialog-xs-height, unset);
+    max-width: var(--adv-dialog-xs-max-width, 250px);
 }
 advanced-dialog[size=small] {
-    width: var(--adv-dialog-med-width, 45%);
-    height: var(--adv-dialog-med-height, 45%);
+    width: var(--adv-dialog-sm-width, 45%);
+    height: var(--adv-dialog-sm-height, 45%);
 }
 advanced-dialog[size=medium] {
     width: var(--adv-dialog-med-width, 65%);
@@ -41,8 +45,8 @@ advanced-dialog[size=large] {
     height: var(--adv-dialog-med-height, 80%);
 }
 advanced-dialog[size=fullscreen], advanced-dialog[size=full] {
-    width: var(--adv-dialog-med-width, 100%);
-    height: var(--adv-dialog-med-height, 80%);
+    width: var(--adv-dialog-lg-width, 100%);
+    height: var(--adv-dialog-lg-height, 80%);
     border-radius: 0px;
 }
 .adv-dialog-backdrop {
@@ -73,9 +77,12 @@ advanced-dialog[size=fullscreen], advanced-dialog[size=full] {
 }
 
 @media (max-width: 600px){
-    advanced-dialog {
+    advanced-dialog:not([size=x-small]):not([size='alert']) {
         height: 100% !important;
         width: 100% !important;
         border-radius: 0px;
+    }
+    advanced-dialog[size=x-small], advanced-dialog[size=alert]{
+        margin: 0.3rem;
     }
 }
