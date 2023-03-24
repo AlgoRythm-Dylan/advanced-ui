@@ -1,7 +1,7 @@
 const TEMPLATE = `<style>
 :host {
     display: flex;
-    border: var(--adv-dialog-border, solid rgb(180, 180, 180) 1px);
+    border: var(--adv-dialog-border, none);
     border-radius: var(--adv-dialog-rounding, 0.3pc);
     flex-direction: column;
     overflow: hidden;
@@ -48,6 +48,9 @@ const TEMPLATE = `<style>
     align-items: center;
     justify-content: var(--adv-dialog-controls-panel-alignment, end);
     border-top: solid #bababa 1px;
+}
+#controls-panel:has(slot:empty){
+    display: none;
 }
 </style>
 <div id="header" part="header">
