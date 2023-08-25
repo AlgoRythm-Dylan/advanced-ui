@@ -21,6 +21,7 @@
 <script type="module" src="advanced-colorpicker.js"></script>
 <script type="module">
 import { showDialog } from "./advanced-dialog.js";
+import Deflate from "./deflate.js";
 
 async function main(){
     document.getElementById("show-a-dialog").addEventListener("click", e => {
@@ -34,6 +35,9 @@ async function main(){
         a.download = "download.txt";
         a.click();
     });
+
+    Deflate.compress("hello world!");
+
 }
 
 addEventListener("load", main);
