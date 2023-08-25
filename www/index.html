@@ -8,6 +8,8 @@
 
     <button id="show-a-dialog">Show a Dialog</button>
 
+    <button id="download-a-file">Download a file</button>
+
     <advanced-colorpicker></advanced-colorpicker>
 
     <template id="test-dialog" size="medium">
@@ -23,6 +25,14 @@ import { showDialog } from "./advanced-dialog.js";
 async function main(){
     document.getElementById("show-a-dialog").addEventListener("click", e => {
         showDialog("#test-dialog");
+    });
+
+    document.getElementById("download-a-file").addEventListener("click", e => {
+        let file = new File(["hello world!"], "text/plain");
+        let a = document.createElement("a");
+        a.href = URL.createObjectURL(file);
+        a.download = "download.txt";
+        a.click();
     });
 }
 
