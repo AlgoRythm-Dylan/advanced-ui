@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-    <title>Advanced-Dialog test</title>
+    <title>Advanced-UI test</title>
     <link href="advanced-dialog.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -22,6 +22,7 @@
 <script type="module">
 import { showDialog } from "./advanced-dialog.js";
 import Deflate from "./deflate.js";
+import BinaryWriter from "./binary-writer.js";
 
 async function main(){
     document.getElementById("show-a-dialog").addEventListener("click", e => {
@@ -29,15 +30,25 @@ async function main(){
     });
 
     document.getElementById("download-a-file").addEventListener("click", e => {
-        let file = new File(["hello world!"], "text/plain");
+        let writer = new BinaryWriter();
+        writer.writeByte( 72);
+        writer.writeByte(101);
+        writer.writeByte(108);
+        writer.writeByte(108);
+        writer.writeByte(111);
+        writer.writeByte( 32);
+        writer.writeByte(119);
+        writer.writeByte(111);
+        writer.writeByte(114);
+        writer.writeByte(108);
+        writer.writeByte(100);
+        let file = writer.blobify();
+        console.log(writer);
         let a = document.createElement("a");
         a.href = URL.createObjectURL(file);
-        a.download = "download.txt";
+        a.download = "binary-writer.txt";
         a.click();
     });
-
-    Deflate.compress("hello world!");
-
 }
 
 addEventListener("load", main);
