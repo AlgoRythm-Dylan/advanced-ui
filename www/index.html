@@ -23,6 +23,7 @@
 import { showDialog } from "./advanced-dialog.js";
 import Deflate from "./deflate.js";
 import BinaryWriter from "./binary-writer.js";
+import LZ77 from "./lz77.js";
 
 async function main(){
     document.getElementById("show-a-dialog").addEventListener("click", e => {
@@ -49,6 +50,12 @@ async function main(){
         a.download = "binary-writer.txt";
         a.click();
     });
+
+    /*let lz = new LZ77();
+    let compressedData = lz.compress("abracadabra");
+    console.log(compressedData);
+    let decompressedData = lz.decompress(compressedData);
+    console.log(decompressedData);*/
 }
 
 addEventListener("load", main);
