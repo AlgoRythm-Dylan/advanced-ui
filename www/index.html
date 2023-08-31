@@ -3,6 +3,11 @@
     <title>Advanced-UI test</title>
     <link href="advanced-dialog.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
 </head>
 <body>
 
@@ -10,7 +15,7 @@
 
     <button id="download-a-file">Download a file</button>
 
-    <advanced-colorpicker></advanced-colorpicker>
+    <advanced-hex-editor value="hello world!"></advanced-hex-editor>
 
     <template id="test-dialog" size="medium">
         <p slot="title">This is a dialog</p>
@@ -24,6 +29,7 @@ import { showDialog } from "./advanced-dialog.js";
 import Deflate from "./deflate.js";
 import BinaryWriter from "./binary-writer.js";
 import LZ77 from "./lz77.js";
+import "./advanced-hex-editor.js";
 
 async function main(){
     document.getElementById("show-a-dialog").addEventListener("click", e => {
@@ -56,6 +62,20 @@ async function main(){
     console.log(compressedData);
     let decompressedData = lz.decompress(compressedData);
     console.log(decompressedData);*/
+
+    addEventListener("dragover", e => {
+        e.preventDefault();
+    });
+
+    addEventListener("dragend", e => {
+        e.preventDefault();
+    });
+
+    addEventListener("drop", async e => {
+        e.preventDefault();
+        document.querySelector("advanced-hex-editor").data = await e.dataTransfer.files[0].arrayBuffer();
+    });
+
 }
 
 addEventListener("load", main);

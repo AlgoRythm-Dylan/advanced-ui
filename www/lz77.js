@@ -11,7 +11,9 @@ export default class LZ77 {
         let match = new LZ77Symbol(0, 0, currentSymbol);
         for(let searchPosition = this.#position - 1; searchPosition >= 0; searchPosition--){
             for(let lookaheadPosition = this.#position; lookaheadPosition < this.input.length; lookaheadPosition++){
-                if(input[searchPosition] === input[lookaheadPosition]);
+                if(input[searchPosition] === input[lookaheadPosition]){
+                    
+                }
             }
         }
         this.#position += Math.max(match.length, 1);
